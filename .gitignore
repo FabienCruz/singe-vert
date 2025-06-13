@@ -10,3 +10,6 @@ __pycache__/
 *$py.class
 *.so
 .Python
+
+# Fichier MacOS
+.DS_Store
