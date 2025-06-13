@@ -188,10 +188,11 @@ h3 a:hover {
 .article-page {
     width: 80%;
     margin: auto;
+    font-size: 1.1rem
 }
 
 .article-page h1 {
-    font-size: 2rem;
+    font-size: 2.2rem;
 }
 
 
