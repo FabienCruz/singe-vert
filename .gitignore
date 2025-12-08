@@ -13,3 +13,6 @@ __pycache__/
 
 # Fichier MacOS
 .DS_Store
+
+# Plugins Obsidian
+.obsidian/
