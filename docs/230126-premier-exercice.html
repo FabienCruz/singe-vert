@@ -23,14 +23,18 @@ La question est vaste. Le risque est de verser dans la paralysie ou dans une agi
 <p><strong>L&rsquo;hypothèse est que les mots les plus fréquents de chaque fichier révèlent leur contexte historique</strong>. </p>
 <p>Cet exercice est réalisé en trois étapes.</p>
 <h2 id="etape-1-constituer-un-corpus">Etape 1 : constituer un <em>corpus</em></h2>
-<p>Je choisis des <strong>documents d&rsquo;époques très différentes</strong>, donnés pour les travaux dirigés de trois cours d&rsquo;histoire de licence:
-1. L&rsquo;âge des révolutions (1760 - 1820)
-2. Église et société (1000 - 1300)
-3. Afrique de l&rsquo;Ouest et Maghreb (1850 - 1950)</p>
-<p>Chacun a un vocabulaire particulier, par exemple:
-- &ldquo;roi&rdquo; et &ldquo;assemblée&rdquo; dans L&rsquo;âge des révolutions
-- &ldquo;moine&rdquo; et &ldquo;monastère&rdquo; dans Église et société
-- &ldquo;indigène&rdquo; et &ldquo;Européens&rdquo; dans Afrique de l&rsquo;Ouest et Maghreb</p>
+<p>Je choisis des <strong>documents d&rsquo;époques très différentes</strong>, donnés pour les travaux dirigés de trois cours d&rsquo;histoire de licence:</p>
+<ol>
+<li>L&rsquo;âge des révolutions (1760 - 1820)</li>
+<li>Église et société (1000 - 1300)</li>
+<li>Afrique de l&rsquo;Ouest et Maghreb (1850 - 1950)</li>
+</ol>
+<p>Chacun a un vocabulaire particulier, par exemple:</p>
+<ul>
+<li>&ldquo;roi&rdquo; et &ldquo;assemblée&rdquo; dans L&rsquo;âge des révolutions</li>
+<li>&ldquo;moine&rdquo; et &ldquo;monastère&rdquo; dans Église et société</li>
+<li>&ldquo;indigène&rdquo; et &ldquo;Européens&rdquo; dans Afrique de l&rsquo;Ouest et Maghreb</li>
+</ul>
 <p>C&rsquo;est ce que l&rsquo;on veut mettre en évidence. </p>
 <p>Il y a aussi certains &ldquo;pièges&rdquo;: par exemple, le mot &ldquo;Dieu&rdquo; peut se retrouver dans les trois fichiers.</p>
 <blockquote>
@@ -71,17 +75,21 @@ La différence est celle de regarder un athlète faire du sport et faire du spor
 <p>Récupérer les &lsquo;mots&rsquo; suppose de définir ce qu&rsquo;est un mot et de faire des choix.</p>
 <p>J&rsquo;ai suivi une idée simple: &ldquo;un mot est ce qui est entre deux espaces.&rdquo;</p>
 <p>J&rsquo;ai aussi choisi d&rsquo;enlever la ponctuation (.,;!?, etc).  </p>
-<p>Les conséquences :
-- un nom propre comme &ldquo;Le marquis de La Fayette&rdquo; est découpé en &ldquo;Le&rdquo;, &ldquo;marquis&rdquo;, &ldquo;de&rdquo;, &ldquo;La&rdquo; et &ldquo;Fayette&rdquo;.
-- enlever les tirets découpe et perd &ldquo;États-Unis&rdquo;.</p>
+<p>Les conséquences :</p>
+<ul>
+<li>un nom propre comme &ldquo;Le marquis de La Fayette&rdquo; est découpé en &ldquo;Le&rdquo;, &ldquo;marquis&rdquo;, &ldquo;de&rdquo;, &ldquo;La&rdquo; et &ldquo;Fayette&rdquo;.</li>
+<li>enlever les tirets découpe et perd &ldquo;États-Unis&rdquo;.</li>
+</ul>
 <p>La graphie française comprend aussi des accents, des apostrophes et la cédille. Il est possible de les enlever et de mettre tout le texte en minuscule. En effet, &ldquo;Roi&rdquo; et &ldquo;roi&rdquo; sont deux mots différents pour ce script (il est &ldquo;sensible à la casse&rdquo;).</p>
 <h4 id="implications-de-methode">Implications de méthode</h4>
 <p>Chacune de ces opérations de <em>normalisation</em> du texte (enlever la ponctuation, les majuscules, les accents, etc) élimine des mots. L&rsquo;analogie la plus commune est celle du <em>data mining</em>: creuser et tamiser la terre pour trouver un trésor. </p>
 <p>Et comme le disait Marcel Mauss, on ne &ldquo;va pas à la chasse, on va à la chasse au lapin&rdquo;. Il faut donc avoir les outils adaptés à la situation.</p>
-<p>Plusieurs listes seraient nécessaires pour &ldquo;normaliser&rdquo; les textes:
-- une liste de la ponctuation que l&rsquo;on va supprimer
-- une liste des mots-vides
-- une liste d&rsquo;exceptions: des mots composés à conserver</p>
+<p>Plusieurs listes seraient nécessaires pour &ldquo;normaliser&rdquo; les textes:</p>
+<ul>
+<li>une liste de la ponctuation que l&rsquo;on va supprimer</li>
+<li>une liste des mots-vides</li>
+<li>une liste d&rsquo;exceptions: des mots composés à conserver</li>
+</ul>
 <p>Pour créer ces listes, il est nécessaire de travailler de manière itérative. Ici le travail n&rsquo;a pas encore été suffisamment mené. </p>
 <p>Ce petit exercice met le doigt sur des questions de méthodes. C&rsquo;est exactement ce que je cherchais. Il existe des outils en accès libre qui font le travail de nettoyage. L&rsquo;exercice suivant consistera à en utiliser un.</p>
     </article>
