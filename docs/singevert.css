@@ -4,8 +4,8 @@
     --black: #222222;
     --white: #ffffff;
     --dark-gray: #333333;
-    --title: 'Tahoma', 'Arial', sans-serif;
-    --body: 'Baskerville', 'Didot', 'Georgia', serif;
+    --title: sans-serif;
+    --body: serif;
 }
 
 * {
@@ -188,7 +188,7 @@ h3 a:hover {
 .article-page {
     width: 80%;
     margin: auto;
-    font-size: 1.4rem
+    font-size: 1.2rem
 }
 
 .article-page h1 {
