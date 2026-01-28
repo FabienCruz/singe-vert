@@ -38,9 +38,9 @@ La question est vaste. Le risque est de verser dans la paralysie ou dans une agi
 <p>C&rsquo;est ce que l&rsquo;on veut mettre en évidence. </p>
 <p>Il y a aussi certains &ldquo;pièges&rdquo;: par exemple, le mot &ldquo;Dieu&rdquo; peut se retrouver dans les trois fichiers.</p>
 <blockquote>
-<p><strong>Notes sur la préparation des fichiers</strong>
-Aucun des auteurs originaux n&rsquo;a évidemment utilisé de logiciel de traitement de texte. Les textes analysés ne sont pas des données brutes mais issus de transcriptions successives. Chacune avec ces intentions: traductions, annotations pédagogiques ou mise en format informatique, etc
-Pour rappel, la forme de l&rsquo;écriture manuelle ou le support utilisé sont des moyens de contextualiser les textes. Mais l&rsquo;analyse de <a href="https://www.chartes.psl.eu/formations/disciplines/paleographie#:~:text=Qu'est%2Dce%20que%20la,critique%20des%20textes%20et%20documents.">paléographie</a> est ici secondaire.</p>
+<p><strong>Notes sur la préparation des fichiers</strong></p>
+<p>Aucun des auteurs originaux n&rsquo;a évidemment utilisé de logiciel de traitement de texte. Les textes analysés ne sont pas des données brutes mais issus de transcriptions successives. Chacune avec ces intentions: traductions, annotations pédagogiques ou mise en format informatique, etc</p>
+<p>Pour rappel, la forme de l&rsquo;écriture manuelle ou le support utilisé sont des moyens de contextualiser les textes. Mais l&rsquo;analyse de <a href="https://www.chartes.psl.eu/formations/disciplines/paleographie#:~:text=Qu'est%2Dce%20que%20la,critique%20des%20textes%20et%20documents.">paléographie</a> est ici secondaire.</p>
 </blockquote>
 <h2 id="etape-2-compter-les-mots">Etape 2 : compter les mots</h2>
 <p>Mon algorithme de dénombrement en <a href="https://fr.wikipedia.org/wiki/Pseudo-code">pseudo-code</a>:</p>
@@ -61,29 +61,30 @@ Pour rappel, la forme de l&rsquo;écriture manuelle ou le support utilisé sont 
 </ol>
 <p>Le pseudo-code, ici simplifié, est un support de réflexion personnelle et de conversation, notamment avec une Intelligence Artificielle comme tutrice.</p>
 <blockquote>
-<p><strong>Remarque sur le vibe coding</strong>
-Il est possible de laisser une Intelligence Artificielle (IA) coder entièrement le script. Faire du <a href="https://en.wikipedia.org/wiki/Vibe_coding#">vibe coding</a>
-Une IA produira un script fonctionnel souvent optimisé. Les développeurs parlent de <a href="https://fr.wiktionary.org/wiki/refactorisation#:~:text=Nom%20commun,-Singulier&amp;text=(Programmation)%20Action%20de%20refactoriser%20%3A,son%20d%C3%A9bogage%20et%20son%20extension.">code refactorisé</a> ou de code &ldquo;élégant&rdquo;. 
-La différence est celle de regarder un athlète faire du sport et faire du sport soi-même. Ensuite, comme pour la rédaction de texte ou la génération d&rsquo;images, les IA font des erreurs.</p>
+<p><strong>Remarque sur le vibe coding</strong></p>
+<p>Il est possible de laisser une Intelligence Artificielle (IA) coder entièrement le script. Faire du <a href="https://en.wikipedia.org/wiki/Vibe_coding#">vibe coding</a></p>
+<p>Une IA produira un script fonctionnel souvent optimisé. Les développeurs parlent de <a href="https://fr.wiktionary.org/wiki/refactorisation#:~:text=Nom%20commun,-Singulier&amp;text=(Programmation)%20Action%20de%20refactoriser%20%3A,son%20d%C3%A9bogage%20et%20son%20extension.">code refactorisé</a> ou de code &ldquo;élégant&rdquo;.</p>
+<p>La différence est celle de regarder un athlète faire du sport et faire du sport soi-même. </p>
+<p>Ensuite, comme pour la rédaction de texte ou la génération d&rsquo;images, les IA font des erreurs.</p>
 </blockquote>
 <h2 id="etape-3-analyser-le-resultat">Etape 3 : analyser le résultat</h2>
 <h4 id="les-mots-vides">Les mots-vides</h4>
 <p>Le mot le plus fréquent dans les trois fichiers est <strong>le mot &ldquo;de&rdquo;</strong>. </p>
-<p>Dans le Top 5, on trouve &ldquo;le&rdquo;, &ldquo;et&rdquo;, &ldquo;à&rdquo;, &ldquo;des&rdquo;, etc</p>
+<p>Dans le Top 5, on trouve &ldquo;le&rdquo;, &ldquo;et&rdquo;, &ldquo;à&rdquo;, &ldquo;des&rdquo;.</p>
 <p>La documentation parle de &lsquo;<em>mots vides</em>&rsquo; ou de <a href="https://voyant-tools.org/docs/tutorial-stopwords.html">stopword</a> en anglais. Ils ont une grande utilité grammaticale mais pas sémantique.</p>
 <h4 id="un-mot">Un mot ?</h4>
 <p>Récupérer les &lsquo;mots&rsquo; suppose de définir ce qu&rsquo;est un mot et de faire des choix.</p>
 <p>J&rsquo;ai suivi une idée simple: &ldquo;un mot est ce qui est entre deux espaces.&rdquo;</p>
-<p>J&rsquo;ai aussi choisi d&rsquo;enlever la ponctuation (.,;!?, etc).  </p>
+<p>J&rsquo;ai aussi choisi d&rsquo;enlever la ponctuation (.,;!? &hellip;).  </p>
 <p>Les conséquences :</p>
 <ul>
 <li>un nom propre comme &ldquo;Le marquis de La Fayette&rdquo; est découpé en &ldquo;Le&rdquo;, &ldquo;marquis&rdquo;, &ldquo;de&rdquo;, &ldquo;La&rdquo; et &ldquo;Fayette&rdquo;.</li>
 <li>enlever les tirets découpe et perd &ldquo;États-Unis&rdquo;.</li>
 </ul>
-<p>La graphie française comprend aussi des accents, des apostrophes et la cédille. Il est possible de les enlever et de mettre tout le texte en minuscule. En effet, &ldquo;Roi&rdquo; et &ldquo;roi&rdquo; sont deux mots différents pour ce script (il est &ldquo;sensible à la casse&rdquo;).</p>
+<p>La graphie française comprend aussi des accents, des apostrophes et la cédille. Il est possible de les enlever et de mettre tout le texte en minuscule. En effet, &ldquo;Roi&rdquo; et &ldquo;roi&rdquo; sont deux mots différents pour ce script (il est dit &ldquo;sensible à la casse&rdquo;).</p>
 <h4 id="implications-de-methode">Implications de méthode</h4>
 <p>Chacune de ces opérations de <em>normalisation</em> du texte (enlever la ponctuation, les majuscules, les accents, etc) élimine des mots. L&rsquo;analogie la plus commune est celle du <em>data mining</em>: creuser et tamiser la terre pour trouver un trésor. </p>
-<p>Et comme le disait Marcel Mauss, on ne &ldquo;va pas à la chasse, on va à la chasse au lapin&rdquo;. Il faut donc avoir les outils adaptés à la situation.</p>
+<p>Et comme le disait Marcel Mauss, on ne &ldquo;va pas à la chasse, on va à la chasse au lapin&rdquo;. Il faut donc avoir les outils adaptés à la situation. La pelle et le tamis.</p>
 <p>Plusieurs listes seraient nécessaires pour &ldquo;normaliser&rdquo; les textes:</p>
 <ul>
 <li>une liste de la ponctuation que l&rsquo;on va supprimer</li>
