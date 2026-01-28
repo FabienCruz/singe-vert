@@ -205,6 +205,12 @@ article li {
     margin-bottom: 0.3rem;
 }
 
+blockquote {
+    background-color: var(--light-green);
+    color: var(--primary-green);
+    padding: 1rem;
+}
+
 footer {
     text-align: center;
     padding: 2rem 0;
