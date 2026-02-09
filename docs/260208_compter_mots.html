@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="./singevert.css">
+  <title>Compter les mots : une première exploration</title>
+</head>
+<body>
+
+  <nav>
+    <a href="./index.html">Sommaire</a>
+    <a href="./260118-editorial.html">À propos</a>
+  </nav>
+
+  <main>
+    <article class="article-page">
+        <h1 id="compter-les-mots-une-premiere-exploration">Compter les mots : une première exploration</h1>
+<p><a href="./230126-premier-exercice.html">Le premier exercice de comptage</a> de mots avait révélé l&rsquo;évidence : les mots les plus fréquents sont des mots grammaticaux. &ldquo;De&rdquo;, &ldquo;le&rdquo;, &ldquo;que&rdquo; et consorts prédominent. Pas surprenant. Cela a ouvert l&rsquo;analogie avec la fouille: creuser, tamiser pour trouver un éventuel trésor ou revenir bredouille. </p>
+<p>L&rsquo;étape suivante : enlever ces mots-vides pour faire émerger le vocabulaire significatif. Mais cette opération de &ldquo;nettoyage&rdquo;, simple à première vue, soulève aussi des questions de méthode.</p>
+<blockquote>
+<p><strong>rappel du dispositif</strong>: 
+trois corpus de textes sont constitués à partir de documents étudiés en cours de licence sur:
+- L’âge des révolutions (1760 - 1820)
+- Église et société (1000 - 1300)
+- Afrique de l’Ouest et Maghreb (1850 - 1950)
+Les corpus sont relativement petits : un peu moins de 3000 signes (entre 1 et 2 pages A4 en police 12) et le corpus sur l&rsquo;Afrique de l&rsquo;ouest et le Maghreb fait moins de 1500 signes.
+Chaque corpus contient des extraits de textes de différents auteurs.
+Ces textes ont été choisis par les professeurs pour leur intérêt historique. </p>
+</blockquote>
+<p><strong>Quelle liste de mots-vides utiliser ?</strong></p>
+<p>Il existe des listes standards de mots-vides, accessibles en ligne. Elles enlèvent les pronoms et les verbes auxiliaires être et avoir, considérés comme purement grammaticaux.</p>
+<p>J&rsquo;ai choisi de constituer ma propre liste, en retirant seulement les articles (&ldquo;le&rdquo;, &ldquo;la&rdquo;, &ldquo;les&rdquo;, &ldquo;un&rdquo;, &ldquo;des&rdquo;) et quelques prépositions courantes (&ldquo;de&rdquo;, &ldquo;à&rdquo;, &ldquo;dans&rdquo;, &ldquo;pour&rdquo;). Je garde les pronoms et les auxiliaires. Un choix qui s&rsquo;avère révélateur.</p>
+<p><strong>Le &ldquo;je&rdquo; du Moyen-Âge</strong></p>
+<p>En conservant les pronoms, une surprise m&rsquo;attend: le corpus du Moyen-Âge est le seul où &ldquo;je&rdquo; est utilisé. C&rsquo;est même un des mots les plus utilisé. Il n&rsquo;apparaît pas dans les deux autres corpus.
+Est-ce le signe d&rsquo;une place de l&rsquo;individu qu&rsquo;on ne soupçonne pas ?
+Sans investigation supplémentaire, impossible de savoir. Mais la piste est ouverte. Et elle n&rsquo;aurait pas émergé avec une liste standard de mots-vides.</p>
+<p><strong>Le futur de la Révolution</strong></p>
+<p>Le futur de être à la troisième personne du pluriel : &ldquo;seront&rdquo; est dans le Top 15 des mots les plus fréquent du corpus sur les révolutions. Pas de futur dans les autres corpus. Signe d&rsquo;un rapport différent au temps ? Les travaux de François Hartog qui sont étudiés en licence, rendent sensibles sur ce point.</p>
+<p>Il s&rsquo;agit plutôt certainement de biais de corpus: un texte particulier peut avoir une incidence forte. L&rsquo;auxiliaire &ldquo;avoir&rdquo; n&rsquo;est pas employé au futur.</p>
+<p>Je me suis posé la question de l&rsquo;importance des majuscules en voyant à &ldquo;Sa Majesté&rdquo; dans le corpus des révolutions. Dans un texte, on a &ldquo;Monsieur de Mirabeau&rdquo; mais &ldquo;M.Necker&rdquo;, un noble en entier, un roturier en abrégé. Effet de la transcription ?</p>
+<p>Quoiqu&rsquo;il en soit : pronoms, le temps des verbes voire les majuscules peuvent être des éléments significatifs.</p>
+<p><strong>Des thématiques qui émergent</strong></p>
+<p>Une fois quelques mots-vides retirés, des articles (&ldquo;le&rdquo;, &ldquo;la&rdquo;, &ldquo;les&rdquo;, &ldquo;de&rdquo;, &ldquo;du&rdquo;, &ldquo;des&rdquo;, &hellip;) et des mots de liaisons (&ldquo;de&rdquo;, &ldquo;avec&rdquo;, &ldquo;pour&rdquo;, &hellip;) un vocabulaire spécifique à chaque corpus apparait :</p>
+<p><em>Révolutions</em> : roi, Majesté, Majestés, royale, France, armées, Paris, habitants. Le champ lexical du pouvoir monarchique et de la citoyenneté.</p>
+<p><em>Afrique</em> : Dieu, esclaves, impôts, enseignement, gouvernement, Africains, Européens, Blancs. Le vocabulaire de la domination coloniale surgit, avec cette opposition marquée entre populations.</p>
+<p><em>Chrétienté</em> : Dieu, Seigneur, esprit, livre. Un vocabulaire plus intemporel, plus difficile à situer précisément dans le temps.</p>
+<p>Pourrait-on, à partir de ces seules thématiques, remonter au sujet et à l&rsquo;époque des corpus ? J&rsquo;en doute. Mais on commence à percevoir des différences de registre, de préoccupations.</p>
+<p><strong>Que retenir de ce petit exercice ?</strong></p>
+<p>Suivre uniquement une démarche ne produit pas d&rsquo;analyse. Le comptage des mots et de leurs fréquence est un premier travail descriptif. Il ouvre des pistes qui demandent vérification.</p>
+<p>La démarche est moins celle d&rsquo;une randonnée avec son plan et son objectif qu&rsquo;un labyrinthe où l&rsquo;on avance à tatons: une piste, une impasse, on revient sur ses pas, on teste une autre direction. Il n&rsquo;y a pas vraiment de sortie, mais chaque exploration permet de tracer un morceau de la carte. Et parfois, de mieux comprendre les questions qu&rsquo;on se pose.</p>
+<p>Car il faut aussi se méfier de soi-même. On trouve d&rsquo;abord ce que l&rsquo;on cherche : le futur dans Révolutions, parce qu&rsquo;on est sensibilisé aux travaux sur la temporalité. On remarque ce qui surprend, sort des habitudes : le &ldquo;je&rdquo; médiéval. Mais que rate-t-on ? Qu&rsquo;est-ce qui nous paraît si évident qu&rsquo;on ne le voit plus ?</p>
+<p>Cette démarche d&rsquo;observation, de questionnement, de vérification n&rsquo;est pas propre à l&rsquo;histoire. Elle emprunte aux sciences, à la littérature, à la linguistique, parfois aux neurosciences (quand on s&rsquo;interroge sur nos propres biais). C&rsquo;est peut-être là un apport des humanités numériques : forcer le dialogue avec d&rsquo;autres disciplines, d&rsquo;autres manières de construire le savoir.</p>
+<h2 id="annexes">Annexes</h2>
+<h4 id="top-50-des-mots-les-plus-frequents-par-corpus">Top 50 des mots les plus fréquents par corpus</h4>
+<table>
+<thead>
+<tr>
+<th></th>
+<th><strong>Révolutions</strong></th>
+<th></th>
+<th><strong>Afrique</strong></th>
+<th></th>
+<th><strong>Chrétienté</strong></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Ordre</strong></td>
+<td><strong>Mot</strong></td>
+<td><strong>Occurences</strong></td>
+<td><strong>Mot</strong></td>
+<td><strong>Occurences</strong></td>
+<td><strong>Mot</strong></td>
+<td><strong>Occurences</strong></td>
+</tr>
+<tr>
+<td>1</td>
+<td>il</td>
+<td>23</td>
+<td>Nous</td>
+<td>21</td>
+<td>il</td>
+<td>59</td>
+</tr>
+<tr>
+<td>2</td>
+<td>ils</td>
+<td>23</td>
+<td>avons</td>
+<td>17</td>
+<td>est</td>
+<td>36</td>
+</tr>
+<tr>
+<td>3</td>
+<td>leur</td>
+<td>22</td>
+<td>est</td>
+<td>13</td>
+<td>nous</td>
+<td>28</td>
+</tr>
+<tr>
+<td>4</td>
+<td>leurs</td>
+<td>20</td>
+<td>nous</td>
+<td>13</td>
+<td>avec</td>
+<td>27</td>
+</tr>
+<tr>
+<td>5</td>
+<td>ce</td>
+<td>15</td>
+<td>il</td>
+<td>11</td>
+<td>ce</td>
+<td>24</td>
+</tr>
+<tr>
+<td>6</td>
+<td>pour</td>
+<td>15</td>
+<td>ne</td>
+<td>11</td>
+<td>pour</td>
+<td>23</td>
+</tr>
+<tr>
+<td>7</td>
+<td>roi</td>
+<td>15</td>
+<td>Notre</td>
+<td>11</td>
+<td>ne</td>
+<td>19</td>
+</tr>
+<tr>
+<td>8</td>
+<td>est</td>
+<td>13</td>
+<td>plus</td>
+<td>9</td>
+<td>comme</td>
+<td>19</td>
+</tr>
+<tr>
+<td>9</td>
+<td>n</td>
+<td>11</td>
+<td>leur</td>
+<td>9</td>
+<td>j</td>
+<td>17</td>
+</tr>
+<tr>
+<td>10</td>
+<td>tous</td>
+<td>11</td>
+<td>Dieu</td>
+<td>8</td>
+<td>lui</td>
+<td>17</td>
+</tr>
+<tr>
+<td>11</td>
+<td>avec</td>
+<td>10</td>
+<td>pour</td>
+<td>8</td>
+<td>me</td>
+<td>16</td>
+</tr>
+<tr>
+<td>12</td>
+<td>deux</td>
+<td>10</td>
+<td>avec</td>
+<td>7</td>
+<td>pas</td>
+<td>16</td>
+</tr>
+<tr>
+<td>13</td>
+<td>était</td>
+<td>10</td>
+<td>notre</td>
+<td>7</td>
+<td>tout</td>
+<td>15</td>
+</tr>
+<tr>
+<td>14</td>
+<td>sans</td>
+<td>10</td>
+<td>vous</td>
+<td>7</td>
+<td>je</td>
+<td>14</td>
+</tr>
+<tr>
+<td>15</td>
+<td>seront</td>
+<td>10</td>
+<td>monde</td>
+<td>6</td>
+<td>m</td>
+<td>13</td>
+</tr>
+<tr>
+<td>16</td>
+<td>a</td>
+<td>9</td>
+<td>eux</td>
+<td>5</td>
+<td>notre</td>
+<td>13</td>
+</tr>
+<tr>
+<td>17</td>
+<td>son</td>
+<td>9</td>
+<td>comme</td>
+<td>5</td>
+<td>n</td>
+<td>13</td>
+</tr>
+<tr>
+<td>18</td>
+<td>M</td>
+<td>9</td>
+<td>ce</td>
+<td>5</td>
+<td>on</td>
+<td>13</td>
+</tr>
+<tr>
+<td>19</td>
+<td>sur</td>
+<td>9</td>
+<td>pays</td>
+<td>5</td>
+<td>avait</td>
+<td>13</td>
+</tr>
+<tr>
+<td>20</td>
+<td>ont</td>
+<td>8</td>
+<td>être</td>
+<td>5</td>
+<td>si</td>
+<td>11</td>
+</tr>
+<tr>
+<td>21</td>
+<td>France</td>
+<td>8</td>
+<td>esclaves</td>
+<td>5</td>
+<td>mon</td>
+<td>11</td>
+</tr>
+<tr>
+<td>22</td>
+<td>La</td>
+<td>7</td>
+<td>ils</td>
+<td>5</td>
+<td>a</td>
+<td>11</td>
+</tr>
+<tr>
+<td>23</td>
+<td>sous</td>
+<td>7</td>
+<td>impôt</td>
+<td>5</td>
+<td>plus</td>
+<td>11</td>
+</tr>
+<tr>
+<td>24</td>
+<td>plus</td>
+<td>7</td>
+<td>enseignement</td>
+<td>4</td>
+<td>où</td>
+<td>9</td>
+</tr>
+<tr>
+<td>25</td>
+<td>jusqu</td>
+<td>7</td>
+<td>où</td>
+<td>4</td>
+<td>était</td>
+<td>9</td>
+</tr>
+<tr>
+<td>26</td>
+<td>personnes</td>
+<td>7</td>
+<td>sur</td>
+<td>4</td>
+<td>sa</td>
+<td>9</td>
+</tr>
+<tr>
+<td>27</td>
+<td>habitants</td>
+<td>7</td>
+<td>gouvernement</td>
+<td>4</td>
+<td>sur</td>
+<td>8</td>
+</tr>
+<tr>
+<td>28</td>
+<td>Sa</td>
+<td>7</td>
+<td>–</td>
+<td>4</td>
+<td>étais</td>
+<td>8</td>
+</tr>
+<tr>
+<td>29</td>
+<td>Majesté</td>
+<td>7</td>
+<td>province</td>
+<td>4</td>
+<td>ainsi</td>
+<td>8</td>
+</tr>
+<tr>
+<td>30</td>
+<td>pas</td>
+<td>6</td>
+<td>Nos</td>
+<td>4</td>
+<td>Dieu</td>
+<td>8</td>
+</tr>
+<tr>
+<td>31</td>
+<td>encore</td>
+<td>6</td>
+<td>pas</td>
+<td>4</td>
+<td>ni</td>
+<td>7</td>
+</tr>
+<tr>
+<td>32</td>
+<td>Le</td>
+<td>6</td>
+<td>cette</td>
+<td>4</td>
+<td>leur</td>
+<td>7</td>
+</tr>
+<tr>
+<td>33</td>
+<td>lui</td>
+<td>6</td>
+<td>ensemble</td>
+<td>4</td>
+<td>cette</td>
+<td>7</td>
+</tr>
+<tr>
+<td>34</td>
+<td>contre</td>
+<td>6</td>
+<td>tous</td>
+<td>4</td>
+<td>même</td>
+<td>7</td>
+</tr>
+<tr>
+<td>35</td>
+<td>Blancs</td>
+<td>6</td>
+<td>a</td>
+<td>4</td>
+<td>Seigneur</td>
+<td>7</td>
+</tr>
+<tr>
+<td>36</td>
+<td>troupes</td>
+<td>6</td>
+<td>autre</td>
+<td>4</td>
+<td>travail</td>
+<td>7</td>
+</tr>
+<tr>
+<td>37</td>
+<td>Leurs</td>
+<td>6</td>
+<td>faire</td>
+<td>3</td>
+<td>son</td>
+<td>7</td>
+</tr>
+<tr>
+<td>38</td>
+<td>Majestés</td>
+<td>6</td>
+<td>Africains</td>
+<td>3</td>
+<td>esprit</td>
+<td>7</td>
+</tr>
+<tr>
+<td>39</td>
+<td>royale</td>
+<td>6</td>
+<td>Européens</td>
+<td>3</td>
+<td>écrit</td>
+<td>7</td>
+</tr>
+<tr>
+<td>40</td>
+<td>également</td>
+<td>5</td>
+<td>leurs</td>
+<td>3</td>
+<td>ils</td>
+<td>7</td>
+</tr>
+<tr>
+<td>41</td>
+<td>armées</td>
+<td>5</td>
+<td>ont</td>
+<td>3</td>
+<td>tous</td>
+<td>7</td>
+</tr>
+<tr>
+<td>42</td>
+<td>eux</td>
+<td>5</td>
+<td>sujets</td>
+<td>3</td>
+<td>âge</td>
+<td>7</td>
+</tr>
+<tr>
+<td>43</td>
+<td>où</td>
+<td>5</td>
+<td>rabī‘</td>
+<td>3</td>
+<td>bien</td>
+<td>6</td>
+</tr>
+<tr>
+<td>44</td>
+<td>Paris</td>
+<td>5</td>
+<td>al-awwal</td>
+<td>3</td>
+<td>Le</td>
+<td>6</td>
+</tr>
+<tr>
+<td>45</td>
+<td>immédiatement</td>
+<td>5</td>
+<td>seraient</td>
+<td>3</td>
+<td>moi</td>
+<td>6</td>
+</tr>
+<tr>
+<td>46</td>
+<td>ai</td>
+<td>5</td>
+<td>1258</td>
+<td>3</td>
+<td>toute</td>
+<td>6</td>
+</tr>
+<tr>
+<td>47</td>
+<td>fait</td>
+<td>5</td>
+<td>cela</td>
+<td>3</td>
+<td>aussi</td>
+<td>6</td>
+</tr>
+<tr>
+<td>48</td>
+<td>été</td>
+<td>5</td>
+<td>même</td>
+<td>3</td>
+<td>livre</td>
+<td>6</td>
+</tr>
+<tr>
+<td>49</td>
+<td>ne</td>
+<td>5</td>
+<td>système</td>
+<td>3</td>
+<td>elle</td>
+<td>6</td>
+</tr>
+<tr>
+<td>50</td>
+<td>quelques</td>
+<td>5</td>
+<td>personnel</td>
+<td>3</td>
+<td>nos</td>
+<td>6</td>
+</tr>
+</tbody>
+</table>
+<h4 id="liste-des-mots-vides">Liste des mots-vides</h4>
+<p>&ldquo;de&rdquo;, &ldquo;des&rdquo;, &ldquo;d&rdquo;, &ldquo;du&rdquo;, &ldquo;le&rdquo;, &ldquo;la&rdquo;, &ldquo;les&rdquo;, &ldquo;l&rdquo;, &ldquo;à&rdquo;, &ldquo;au&rdquo;, &ldquo;et&rdquo;, &ldquo;ou&rdquo;, &ldquo;en&rdquo;, &ldquo;qui&rdquo;, &ldquo;que&rdquo;, &ldquo;qu&rdquo;, &ldquo;dans&rdquo;, &ldquo;par&rdquo;, &ldquo;un&rdquo;, &ldquo;une&rdquo;, &ldquo;aux&rdquo;, &ldquo;se&rdquo;, &ldquo;s&rdquo;, &ldquo;y&rdquo;</p>
+    </article>
+  </main>
+
+  <footer>
+    <p>© 2026 - La chronique du singe vert</p>
+  </footer>
+</body>
+</html>

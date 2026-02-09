@@ -103,7 +103,7 @@ background-color: var(--black);
     }
     .article-page {
         width: 66%;
-        max-width: 800px;
+        max-width: 700px;
         margin: auto;
     }
 }
