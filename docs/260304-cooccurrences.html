@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="./singevert.css">
+  <title>Comprendre un mot à partir de ceux qui l&rsquo;entoure</title>
+</head>
+<body>
+
+  <nav>
+    <a href="./index.html">Sommaire</a>
+    <a href="./260118-editorial.html">À propos</a>
+  </nav>
+
+  <main>
+    <article class="article-page">
+        <h1 id="comprendre-un-mot-a-partir-de-ceux-qui-lentoure">Comprendre un mot à partir de ceux qui l&rsquo;entoure</h1>
+<p>Les intentions des auteurs qui écrivent &ldquo;sa majesté le roi&rdquo; et &ldquo;à mort le roi !&rdquo; sont évidemment différentes.
+Comment appréhender ces variations avec un outil d&rsquo;analyse automatique ? Les Humanités numériques utilisent la notion de <em>cooccurrences</em>: avec quels autres mots un mot est-il utilisé ? Dans nos exemples : &ldquo;majesté&rdquo; et &ldquo;mort&rdquo; sont des cooccurrences du <em>mot-pivot</em> &ldquo;roi&rdquo;. </p>
+<p>L&rsquo;exercice consiste à prendre deux textes, réunis dans un <em>corpus</em>, utilisant un même mot mais dans des contextes différents et de voir ce que les co-occurences révèlent.</p>
+<p>Notre corpus est constitué <sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup> d&rsquo;une lettre de Thomas Jefferson, <a href="https://founders.archives.gov/documents/Jefferson/01-15-02-0277">ici la version complète en anglais</a> qui rapporte les évènements de juillet 1789 en France où il était ambassadeur, un point de vue plutôt pro-révolutionnaire, et du <a href="https://gallica.bnf.fr/ark:/12148/btv1b6948324w">manifeste du duc de Brunswick</a> attribué au chef des armées autrichiennes et prussiennes et qui menaçait en juillet 1792 les parisiens en cas de manifestations contre le roi et sa famille, un texte contre-révolutionnaire.</p>
+<p>Deux modalités de co-occurrences ont été testées <sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup>:</p>
+<ol>
+<li><strong>Le &ldquo;mot-clé en contexte&rdquo;</strong> (<em>Key Word In Context</em> et l&rsquo;acronyme <em>KWIC</em>). Il s&rsquo;agit de repérer le mot pivot dans le texte puis d&rsquo;extraire la phrase.</li>
+<li><strong>Le comptage des cooccurences</strong>. Le mot-pivot est isolé. Les mots qui l&rsquo;entourent, dans une fenêtre de quelques mots, sont regroupés puis dénombrés.</li>
+</ol>
+<p>Par exemple avec le manifeste de Brunswick, pour le mot-pivot &ldquo;roi&rdquo;, </p>
+<p>La première modalité, le KWIC, produit ce type de résultat:</p>
+<ul>
+<li>&ldquo;légitime exercé contre la personne sacrée du [roi] et contre son auguste famille des attentats&rdquo;</li>
+</ul>
+<p>et la seconde, le comptage des co-occurences :</p>
+<ul>
+<li>roi : 14 apparitions dans le texte</li>
+<li>empereur  :  5 occurrences</li>
+<li>prusse  :  5</li>
+<li>majesté  :  5</li>
+<li>france  :  4</li>
+</ul>
+<p>Bien que les morceaux de phrases extraites par la méthode du KWIC soient très lisibles, elle n&rsquo;apporte pas plus qu&rsquo;un simple surlignage. Avec notre extraction, on perd même l&rsquo;information de sa place dans le texte: est-ce que le mot &ldquo;roi&rdquo; apparaît tout au long du texte, plutôt au début, à la fin ? Si on l&rsquo;améliore, cette technique ouvre à une analyse visuelle du texte: surligner, colorer, zoomer, dé-zoomer. Sur des volumes importants, cette méthode sera certainement limitée.</p>
+<p><strong>Le comptage des cooccurrences fait bien apparaître les thématiques et la tonalité des textes</strong>, même sur des extraits aussi courts. Le texte de Thomas Jefferson entoure le roi de &ldquo;cris&rdquo;, &ldquo;populaires&rdquo; et de &ldquo;nation&rdquo;, c&rsquo;est la prise de la Bastille et le port de la cocarde par le roi à l&rsquo;Hôtel de Ville qui sont racontés, et celui du Duc de Brunswick parle autorité avec &ldquo;majesté&rdquo;, &ldquo;ordre&rdquo;, &ldquo;légitime&rdquo; mêlée de crainte avec la &ldquo;violence&rdquo;, &ldquo;contre&rdquo;, la &ldquo;famille&rdquo;, &ldquo;royale&rdquo;.</p>
+<p>Cette technique du comptage de co-occurrence sera, au final, plus intéressante avec du volume. Il faut que le mot-pivot soit utilisé de nombreuses fois. Plus les mots ou expressions co-occurrents sont fréquents, plus le contexte devient apparent et significatif. Son avantage est aussi de pouvoir faire des comparaisons : selon l&rsquo;auteur, selon le moment. Un mot apparaît avec un contexte pour l&rsquo;un  et un différent pour l&rsquo;autre.</p>
+<p>La prochaine étape consistera à sophistiquer le dispositif en travaillant sur les flexions d&rsquo;un mot (roi / rois / royal) et sa <em>lemmatisation</em> pour le ramener à sa racine.</p>
+<hr />
+<h2 id="annexe-comptage-des-cooccurrences">Annexe : comptage des cooccurrences</h2>
+<p>Seules les cooccurrences avec plus de deux apparitions sont listées.</p>
+<p>Cooccurrences dans le texte de Thomas Jefferson</p>
+<p>pivot : roi
+nb apparitions : 11
+vive  :  6
+troupes  :  4
+cris  :  4
+nation  :  4
+jour  :  2
+chapitre  :  2
+changement  :  2
+paris  :  2
+seul  :  2
+entendu  :  2
+descendit  :  2
+hôtel  :  2
+ville  :  2
+là  :  2
+monsieur  :  2
+bailly  :  2
+présenta  :  2
+prononça  :  2
+jusqu  :  2
+audience  :  2
+venait  :  2
+retour  :  2
+populaires  :  2
+raccompagné  :  2</p>
+<p>Cooccurrences avec le Manifeste de Brunswick </p>
+<p>pivot : roi
+nb apparitions : 14
+empereur  :  5
+prusse  :  5
+majesté  :  5
+majestés  :  4
+france  :  4
+fait  :  3
+contre  :  3
+famille  :  3
+soumettre  :  3
+moindre  :  3
+armées  :  2
+combinées  :  2
+adressée  :  2
+habitants  :  2
+ll  :  2
+mm  :  2
+ordre  :  2
+gouvernement  :  2
+légitime  :  2
+sûreté  :  2
+liberté  :  2
+mettre  :  2
+sans  :  2
+délai  :  2
+reine  :  2
+royale  :  2
+bourgs  :  2
+villages  :  2
+insulté  :  2
+violence  :  2</p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>J&rsquo;utilise des versions numérisés des textes données en cours de licence sur la Révolution française. Les textes sont modifiés pour des raisons pédagogiques. Principalement la lettre de Jefferson est traduite en français et raccourcie.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:2">
+<p>Un aspect trivial mais consommateur d&rsquo;énergie : l&rsquo;ordinateur ne sait pas lire. Il ne fait que capturer un ensemble de trois lettres : r + o + i aussi bien dan &ldquo;[roi]&rdquo; que dans &ldquo;t[roi]s&rdquo;.&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+    </article>
+  </main>
+
+  <footer>
+    <p>© 2026 - La chronique du singe vert</p>
+  </footer>
+</body>
+</html>
