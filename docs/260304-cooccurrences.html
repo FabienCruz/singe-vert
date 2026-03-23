@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link rel="stylesheet" href="./singevert.css">
-  <title>Comprendre un mot à partir de ceux qui l&rsquo;entoure</title>
+  <title>Comprendre un mot à partir de ceux qui l&rsquo;entourent</title>
 </head>
 <body>
 
@@ -15,12 +15,12 @@
 
   <main>
     <article class="article-page">
-        <h1 id="comprendre-un-mot-a-partir-de-ceux-qui-lentoure">Comprendre un mot à partir de ceux qui l&rsquo;entoure</h1>
+        <h1 id="comprendre-un-mot-a-partir-de-ceux-qui-lentourent">Comprendre un mot à partir de ceux qui l&rsquo;entourent</h1>
 <p>Les intentions des auteurs qui écrivent &ldquo;sa majesté le roi&rdquo; et &ldquo;à mort le roi !&rdquo; sont évidemment différentes.
 Comment appréhender ces variations avec un outil d&rsquo;analyse automatique ? Les Humanités numériques utilisent la notion de <em>cooccurrences</em>: avec quels autres mots un mot est-il utilisé ? Dans nos exemples : &ldquo;majesté&rdquo; et &ldquo;mort&rdquo; sont des cooccurrences du <em>mot-pivot</em> &ldquo;roi&rdquo;. </p>
-<p>L&rsquo;exercice consiste à prendre deux textes, réunis dans un <em>corpus</em>, utilisant un même mot mais dans des contextes différents et de voir ce que les co-occurences révèlent.</p>
-<p>Notre corpus est constitué <sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup> d&rsquo;une lettre de Thomas Jefferson, <a href="https://founders.archives.gov/documents/Jefferson/01-15-02-0277">ici la version complète en anglais</a> qui rapporte les évènements de juillet 1789 en France où il était ambassadeur, un point de vue plutôt pro-révolutionnaire, et du <a href="https://gallica.bnf.fr/ark:/12148/btv1b6948324w">manifeste du duc de Brunswick</a> attribué au chef des armées autrichiennes et prussiennes et qui menaçait en juillet 1792 les parisiens en cas de manifestations contre le roi et sa famille, un texte contre-révolutionnaire.</p>
-<p>Deux modalités de co-occurrences ont été testées <sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup>:</p>
+<p>L&rsquo;exercice consiste à prendre deux textes, réunis dans un <em>corpus</em><sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>, utilisant un même mot mais dans des contextes différents et de voir ce que les co-occurences révèlent.</p>
+<p>Notre corpus est constitué <sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup> d&rsquo;une lettre de Thomas Jefferson, <a href="https://founders.archives.gov/documents/Jefferson/01-15-02-0277">ici la version complète en anglais</a> qui rapporte les évènements de juillet 1789 en France où il était ambassadeur, un point de vue plutôt pro-révolutionnaire, et du <a href="https://gallica.bnf.fr/ark:/12148/btv1b6948324w">manifeste du duc de Brunswick</a> attribué au chef des armées autrichiennes et prussiennes et qui menaçait en juillet 1792 les parisiens en cas de manifestations contre le roi et sa famille, un texte contre-révolutionnaire.</p>
+<p>Deux modalités de co-occurrences ont été testées <sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup>:</p>
 <ol>
 <li><strong>Le &ldquo;mot-clé en contexte&rdquo;</strong> (<em>Key Word In Context</em> et l&rsquo;acronyme <em>KWIC</em>). Il s&rsquo;agit de repérer le mot pivot dans le texte puis d&rsquo;extraire la phrase.</li>
 <li><strong>Le comptage des cooccurences</strong>. Le mot-pivot est isolé. Les mots qui l&rsquo;entourent, dans une fenêtre de quelques mots, sont regroupés puis dénombrés.</li>
@@ -109,10 +109,13 @@ violence  :  2</p>
 <hr />
 <ol>
 <li id="fn:1">
-<p>J&rsquo;utilise des versions numérisés des textes données en cours de licence sur la Révolution française. Les textes sont modifiés pour des raisons pédagogiques. Principalement la lettre de Jefferson est traduite en français et raccourcie.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+<p>La constitution de corpus est un enjeu en soi. Il n&rsquo;est pas celui de notre exercice. Ce dernier se centre uniquement sur la notion de co-occurrence.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
 </li>
 <li id="fn:2">
-<p>Un aspect trivial mais consommateur d&rsquo;énergie : l&rsquo;ordinateur ne sait pas lire. Il ne fait que capturer un ensemble de trois lettres : r + o + i aussi bien dan &ldquo;[roi]&rdquo; que dans &ldquo;t[roi]s&rdquo;.&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+<p>J&rsquo;utilise des versions numérisés des textes données en cours de licence sur la Révolution française. Les textes sont modifiés pour des raisons pédagogiques. Principalement la lettre de Jefferson est traduite en français et raccourcie.&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:3">
+<p>Un aspect trivial mais consommateur d&rsquo;énergie : l&rsquo;ordinateur ne comprend pas ce qu&rsquo;il lit. Il ne fait que capturer un ensemble de trois lettres : r + o + i ,et cela aussi bien dans &ldquo;[roi]&rdquo; que dans &ldquo;t[roi]s&rdquo;.&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div>

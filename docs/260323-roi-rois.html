@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="./singevert.css">
+  <title>{{ titre }}</title>
+</head>
+<body>
+
+  <nav>
+    <a href="./index.html">Sommaire</a>
+    <a href="./260118-editorial.html">À propos</a>
+  </nav>
+
+  <main>
+    <article class="article-page">
+        <h2 id="le-roi-et-les-rois-faut-il-les-distinguer">Le &ldquo;roi&rdquo; et les &ldquo;rois&rdquo;, faut-il les distinguer ?</h2>
+<p>L&rsquo;ordinateur ne sait pas lire. Pour lui, &ldquo;roi&rdquo; et &ldquo;rois&rdquo; sont deux choses complètement différentes.</p>
+<p>Dans nos comptages de mots, notamment lorsque les volumes à traiter augmentent, regrouper les variations (les linguistes parlent de <em>flexions</em>) d&rsquo;un même mot <sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup> peut être nécessaire pour améliorer la lisibilité des résultats.</p>
+<p>Les rédacteurs de dictionnaires (les lexicographes) regroupent les différentes formes d&rsquo;un mot sous une seule racine, par exemple l&rsquo;infinitif pour les verbes: &ldquo;être&rdquo; pour &ldquo;est&rdquo;, &ldquo;était&rdquo;, &ldquo;été&rdquo;, &ldquo;sera&rdquo;, etc. La forme du mot qui regroupe ses variantes s&rsquo;appelle un <em>lemme</em> et l&rsquo;exercice de regroupement, la <em>lemmatisation</em>.</p>
+<p>Nous utilisons comme corpus historique <a href="https://sul-philologic.stanford.edu/philologic/archparl/navigate/52/3/">les archives parlementaires de l&rsquo;Assemblée nationale du 22 septembre au 26 octobre 1792- La Convention Nationale</a> Il s&rsquo;agit d&rsquo;une version mise en ligne par l&rsquo;Université de Stanford, numérisée à partir d&rsquo;une source imprimée de la fin du XIXe siècle <sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup>. Le corpus contient les débats qui entourent l&rsquo;abolition de la royauté et la proclamation de la République. Il est assez volumineux, environ 700 pages.</p>
+<p>Le corpus contient 611 877 mots.
+si on enlève les mots vides (&ldquo;de&rdquo;, &ldquo;du&rdquo;, &ldquo;le&rdquo;, la&rdquo;, etc), il reste 285 036 mots.
+Le Top 5 des mots les plus fréquents:
+- convention : 3642 occurrences
+- nationale : 2492
+- demande : 1559
+- citoyens : 1493
+- comité : 1387</p>
+<p>Ce vocabulaire est cohérent avec des discours d&rsquo;une assemblée à l&rsquo;époque révolutionnaire, ce que l&rsquo;on voit avec l&rsquo;importance des mots &ldquo;citoyens&rdquo; et &ldquo;nationale&rdquo;.</p>
+<blockquote>
+<p><strong>Rappel du contexte de 1792</strong></p>
+<ul>
+<li>20 avril : la France déclare la guerre à l&rsquo;Autriche</li>
+<li>1e août : le manifeste de Brunswick, lettre de menace aux Parisiens s&rsquo;ils portent atteinte au roi.</li>
+<li>10 août : prise des Tuileries. Louis XVI et sa famille sont enfermés au Temple. Annonce de l&rsquo;élection d&rsquo;une convention au suffrage universel masculin.</li>
+<li>20 septembre : ouverture de la Convention nationale et bataille de Valmy</li>
+</ul>
+</blockquote>
+<p>Après plusieurs défaites françaises, les troupes prussiennes et autrichiennes sont entrées sur le territoire français par le nord-est et avancent vers Paris.</p>
+<p>Depuis septembre 1791, la France est une monarchie constitutionnelle. Aussi la Convention nationale commence-t-elle par l&rsquo;abolition de la royauté et la proclamation de la république.</p>
+<blockquote>
+<p><strong>Extrait du corpus</strong></p>
+<p>Grégoire.</p>
+<p>Certes, personne de nous ne proposera jamais de conserver en France la race funeste des rois; nous savons trop bien que toutes les dynasties n’ont jamais été que des races dévorantes qui ne vivaient que du sang des peuples; mais il faut pleinement rassurer les amis de la liberté; il faut détruire ce mot de roi, qui est encore un talisman dont la force magique serait propre à stupéfier bien des hommes. Je demande donc que, par une loi solennelle, vous consacriez l&rsquo;abolition de la royauté.</p>
+<p>Le Président.</p>
+<p>Je mets aux voix la proposition de M. l’abbé Grégoire :
+« La Convention nationale décrète que la royauté est abolie en France. »
+(L’Assemblée décrète cette proposition à l’unanimité.)
+(Des acclamations de joie, des cris de : Vive la nation ! répétés par tous les spectateurs se prolongent pendant plusieurs instants.)</p>
+</blockquote>
+<p>Dans ce contexte, nous regardons les mots qui entourent le lemme &ldquo;roi&rdquo; soit &ldquo;roi&rdquo; et &ldquo;rois&rdquo;. </p>
+<p>Pour comprendre l&rsquo;effet de la lemmatisation, nous testons deux approches:</p>
+<ol>
+<li>avec une lemmatisation automatique d&rsquo;un mot grâce à l&rsquo;outil <a href="https://spacy.io/">SpaCy</a> La lemmatisation s&rsquo;effectue sur le mot recherché, le &ldquo;mot-pivot&rdquo;, donc &ldquo;roi&rdquo; et &ldquo;rois&rdquo; sont recherchés indistinctement, et aussi sur le résultats : &ldquo;applaudissement&rdquo; regroupe le singulier &ldquo;applaudissement&rdquo; et le pluriel &ldquo;applaudissements&rdquo;, ou encore, &ldquo;combattre&rdquo; regroupe les conjugaisons &ldquo;combattons&rdquo;, &ldquo;combattez&rdquo;, &ldquo;combattent&rdquo;, etc</li>
+<li>de manière séquentielle, avec un même mot pris au singulier puis au pluriel. Le comptage est effectué avec &ldquo;roi&rdquo; puis avec &ldquo;rois&rdquo;. Le résultat distingue le singulier &ldquo;applaudissement&rdquo; et le pluriel &ldquo;applaudissements&rdquo;.</li>
+</ol>
+<h2 id="resultats-avec-la-lemmatisation-automatique">Résultats avec la lemmatisation automatique</h2>
+<p>Le lemme &ldquo;roi&rdquo; apparait 439 fois.</p>
+<h5 id="les-rois-et-leurs-entourages">Les rois et leurs entourages :</h5>
+<p>Il est question de plusieurs rois différents : 
+- (de) Prusse (69 apparitions),
+- (de) Sardaigne (17)
+ et aussi :
+- empereur (6)
+- prince (5)</p>
+<p>dont les entourages sont visibles:
+- conseiller (10)
+- ministre (9)
+- famille (8)
+- maison (7)
+- reine (4)</p>
+<p>et des symboles:
+- trône (5)
+- effigie (5)</p>
+<h5 id="le-contexte-de-la-guerre">Le contexte de la guerre :</h5>
+<ul>
+<li>troupe (14)</li>
+<li>combattre (10)</li>
+<li>guerre (9)</li>
+<li>détruire (5)</li>
+<li>camp (5)</li>
+<li>lieutenant (5)</li>
+<li>Dumouriez (5)</li>
+<li>militaire (4)</li>
+<li>traité (4)</li>
+</ul>
+<h5 id="les-acteurs-de-la-revolution">Les acteurs de la révolution</h5>
+<ul>
+<li>commissaire (12)</li>
+<li>assemblée (5)</li>
+<li>citoyen (4)</li>
+<li>émigré (4)</li>
+</ul>
+<h5 id="des-concepts-politiques">Des concepts politiques</h5>
+<ul>
+<li>nation (17)</li>
+<li>peuple (15)</li>
+<li>royauté (11)</li>
+<li>liberté (8)</li>
+<li>république (6)</li>
+</ul>
+<h5 id="des-expression-de-sentiments-negatifs">Des expression de sentiments négatifs</h5>
+<ul>
+<li>haine (7)</li>
+<li>lâche (5)</li>
+<li>tyran (4)</li>
+<li>despotisme (4)</li>
+<li>luxe (4)</li>
+</ul>
+<h5 id="des-actes-juridiques">Des actes juridiques</h5>
+<ul>
+<li>jurer (6)</li>
+<li>décret (6)</li>
+<li>ordre (5)</li>
+<li>parjure (4)</li>
+<li>loi (4)</li>
+<li>traité (4)</li>
+<li>captivité (4)</li>
+<li>serment (3)</li>
+</ul>
+<p>Les thématiques sont cohérentes avec le contexte. Ces résultats sont aussi décevants. Au mieux, ils confirment ce que l&rsquo;on attendait. </p>
+<p>Mais, aucune surprise, aucun accident. Ils ouvrent peu de nouvelles questions. Ces limites s&rsquo;expliquent en partie par les caractéristiques de l&rsquo;outil.</p>
+<p>En effet, le nettoyage de mots-vides par SpaCy pose problème : &ldquo;Louis&rdquo; est éliminé du résultat car considéré comme mot-vide mais pas les verbes &ldquo;être&rdquo; ou &ldquo;faire&rdquo;, ou encore &ldquo;-&rdquo; et &ldquo;«&rdquo; qui sont conservés comme des mots. La configuration de l&rsquo;outil est binaire: soit on prend la liste de mots-vides de SpaCy soit on ne la prend pas. Et c&rsquo;est un peu une boîte noire.</p>
+<p>De manière surprenante, il distingue &ldquo;applaudissement&rdquo; et &ldquo;Applaudissements&rdquo;. Il faut dire que la numérisation de ce dernier est fautive: &ldquo;{Applaudissements&rdquo;, la parenthèse est lue comme une accolade. Idem &ldquo;Majesté&rdquo; ou &ldquo;majestés&rdquo;.</p>
+<p>Enfin c&rsquo;est un outil assez gourmand en mémoire. Il traite nos 700 pages en quelques minutes alors que mes scripts plus frustres le font en quelques secondes. </p>
+<h2 id="resultats-en-separant-singulier-et-pluriel">Résultats en séparant singulier et pluriel</h2>
+<h4 id="roi-au-singulier">Roi au singulier</h4>
+<p>323 apparitions dans le texte</p>
+<p>On retrouve toutes les thématiques identifiées avec la lemmatisation automatique de SpaCy mais avec <strong>plus de précisions</strong>.</p>
+<p>Par exemple, dans l&rsquo;entourage des rois &ldquo;Comte&rdquo; apparaît 9 fois (les frères du roi ont le titre de Comte).</p>
+<p>Un thème se dessine davantage, le rapport au temps, avec les co-occurrences suivantes :
+- 1792 (12 co-occurrences)
+- septembre (11)
+- moment (12)
+- temps (10)
+- jour (8)</p>
+<h4 id="rois-au-pluriel">Rois au pluriel</h4>
+<p>116 apparitions</p>
+<p><strong>Les thèmes sont légèrement différents de ceux du mot au singulier.</strong></p>
+<p>Les co-occurrences se concentrent sur <strong>les grandes notions politiques</strong>, avec une <strong>attitude républicaine plus marquée</strong>. </p>
+<p>Par exemple le Top 4 des co-occurences:
+- liberté (19)
+- royauté (14)
+- peuple (14) 
+- république (13)</p>
+<p><strong>D&rsquo;une manière générale, le champ thématique des mots n&rsquo;est pas exactement le même entre le singulier et le pluriel.</strong></p>
+<p>Par exemple, le mot &ldquo;haine&rdquo; est davantage associé aux &ldquo;rois&rdquo; au pluriel  (7 co-occurrences) et aux &ldquo;tyrans&rdquo; au pluriel (7 co-occurrences) qu&rsquo;au &ldquo;roi&rdquo; au singulier (4 co-occurrences) et pas du tout à &ldquo;tyran&rdquo; au singulier. </p>
+<p>Autre exemple de différence entre singulier et pluriel, dans tout le corpus, &ldquo;tyran&rdquo; est utilisé 10 fois au singulier mais 123 fois au pluriel.</p>
+<p>Est-ce à dire que les révolutionnaires haïssent LES rois et non LE roi, LES tyrans et non LE tyran ? </p>
+<p><strong>Ces différences ouvrent la curiosité.</strong></p>
+<p>Au final, l&rsquo;exercice de comptage des co-occurrences est intéressant lorsqu&rsquo;il permet de débuter un regroupement thématique, d&rsquo;identifier des différences et suscite des surprises.</p>
+<p>La lemmatisation est utile pour rendre les résultats lisibles. Il est cependant préférable qu&rsquo;elle soit contrôlée par l&rsquo;analyste. Comme nous l&rsquo;avons vu, les distinctions grammaticales (singulier / pluriel, passé / présent / futur) peuvent apporter un éclairage sur le corpus. C&rsquo;est à l&rsquo;historienne ou à l&rsquo;historien d&rsquo;en décider. SpaCy, dont les objectifs sont différents, lisse trop le texte. Mieux vaut parfois un outil plus frustre mais mieux maîtrisé.</p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>Le français est une langue à flexion: masculin, féminin, singulier, pluriel, passé, présent, futur, etc font varier la forme d&rsquo;un mot.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:2">
+<p>Le texte a été transcrit de manière automatique. Il affiche un taux de fiabilité de 88%. Ce taux s&rsquo;applique aux caractères pas au mot. &ldquo;Hautc-Loire&rdquo; contient 11 caractères avec 1 erreur le &ldquo;c&rdquo; à la place du &ldquo;e&rdquo;, soit un taux de fiabilité de 91%.&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+    </article>
+  </main>
+
+  <footer>
+    <p>© 2026 - La chronique du singe vert</p>
+  </footer>
+</body>
+</html>
