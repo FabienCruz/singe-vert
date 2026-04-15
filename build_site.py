@@ -9,7 +9,6 @@ Une partie du formatage des fichiers est fait par convention au niveau Obsidian:
 """
 import yaml
 import markdown
-import datetime
 import locale
 import shutil
 import re
@@ -22,7 +21,7 @@ settings = {
     'static': "./Static"
 }
 
-# Configuration de la locale française
+# Configuration de la locale française, pour l'affichage des dates en français (ex. "janvier" et non "january")
 try:
     locale.setlocale(locale.LC_TIME, 'fr_FR.UTF-8')  # Linux/Mac
 except locale.Error:
@@ -68,9 +67,27 @@ Utilitaires pour le traitement du contenu markdown
 """
 
 def make_excerpt(text, words=30):
-    """Crée un extrait de texte en supprimant les footnotes"""
-    text_cleaned = erase_footnote(text)
-    words_list = text_cleaned.split()
+    """Crée un extrait de texte en supprimant les footnotes et le formatage markdown"""
+    # Supprimer uniquement les footnotes (format [^1], [^note], etc.)
+    # Important : ne PAS supprimer les liens markdown [texte](url)
+    text_cleaned = re.sub(r'\[\^[^\]]+\]', '', text)
+    
+    # Prendre les premiers mots avec marge de 50% pour les marqueurs markdown
+    # (ex: **mot** compte pour 3 tokens mais 1 seul mot réel)
+    words_with_margin = int(words * 1.5)
+    text_start = ' '.join(text_cleaned.split()[:words_with_margin])
+    
+    # Convertir uniquement cette portion en HTML
+    html = md_to_html(text_start)
+    
+    # Supprimer toutes les balises HTML pour obtenir le texte brut
+    plain_text = re.sub(r'<[^>]+>', '', html)
+    
+    # Nettoyer les espaces multiples et les retours à la ligne
+    plain_text = re.sub(r'\s+', ' ', plain_text).strip()
+    
+    # Prendre les premiers mots demandés
+    words_list = plain_text.split()
     excerpt = ' '.join(words_list[:words])+"..."
     return excerpt
 
@@ -207,6 +224,15 @@ def build_article_cards(data):
     """
     all_cards = []
     
+    # On transforme le dictionnaire en liste et on trie par la clé 'date' du front-matter
+    # reverse=True permet d'avoir la date la plus récente (le plus grand nombre) en haut
+    # Le fichier markdown doit avoir la donnée 'date' dans le front-matter
+    sorted_articles = sorted(
+        data.items(), 
+        key=lambda item: str(item[1]['metadata'].get('date', '0000-00-00')), 
+        reverse=True
+        )
+
     for article_id, article_data in data.items():
         try:
             card_html = render_template("article-card.html", article_data['metadata'])
