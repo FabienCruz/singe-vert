@@ -91,9 +91,11 @@ background-color: var(--black);
 
 .articles-container {
     display: grid;
-    grid-template-columns: 1fr;
-    gap: 3rem;
-    margin-bottom: 3rem;
+    /* Crée autant de colonnes de 320px minimum que l'espace le permet */
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 2rem;
+    margin: 2rem auto;
+    max-width: 1200px; /* Pour éviter que les cartes ne soient trop larges sur grand écran */
 }
 
 .article-page {
