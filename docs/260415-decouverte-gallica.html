@@ -48,25 +48,31 @@ Sur le site, <a href="https://gallica.bnf.fr/accueil/fr/html/une-prestigieuse-bi
 <h2 id="1-mois-de-travail-pour-numeriser-le-document">1 mois de travail pour numériser le document</h2>
 <p>Une solution intermédiaire et souple sur la liste des champs consiste à 
 utiliser le format <a href="https://www.w3schools.com/xml/default.asp">XML</a>. Il a l&rsquo;avantage de réutiliser le fichier de la transcription océrisé par Gallica.</p>
-<p>Exemple pour une entrée du catalogue:
-<code>xml
-&lt;entree&gt;
-    &lt;titre&gt;
-    BIBLIA Polyglotta, Waltoni.
-    &lt;/titre&gt;
-    &lt;lieu&gt;
-    Londini,
-    &lt;/lieu&gt;
-    &lt;editeur&gt;
-    Royercroft,
-    &lt;/editeur&gt;
-    &lt;date&gt;
-    1657
-    &lt;/date&gt;
-    &lt;volume&gt;
-    6. vol.
-    &lt;/volume&gt;
-&lt;/entree&gt;</code></p>
+<p>Exemple pour une entrée du catalogue:</p>
+<p>```xml</p>
+<p><entree></p>
+<pre><code>&lt;titre&gt;
+BIBLIA Polyglotta, Waltoni.
+&lt;/titre&gt;
+
+&lt;lieu&gt;
+Londini,
+&lt;/lieu&gt;
+
+&lt;editeur&gt;
+Royercroft,
+&lt;/editeur&gt;
+
+&lt;date&gt;
+1657
+&lt;/date&gt;
+
+&lt;volume&gt;
+6. vol.
+&lt;/volume&gt;
+</code></pre>
+<p></entree></p>
+<p>```</p>
 <p>C&rsquo;est un exercice de lecture et de découpage.</p>
 <p>En 1 heure, je transcris manuellement 1 page en XML. Le livre compte plus de 500 pages. A ce rythme, il faudrait environ 1 mois pour transcrire la totalité de l&rsquo;ouvrage.</p>
 <p>Le passage du format XML à un fichier excel serait ensuite assez simple avec un programme qui balayerait le fichier et reporterait les données dans chaque champ.</p>
