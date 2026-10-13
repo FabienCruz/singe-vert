@@ -52,11 +52,11 @@ Le Top 5 des mots les plus fréquents:</p>
 (L’Assemblée décrète cette proposition à l’unanimité.)
 (Des acclamations de joie, des cris de : Vive la nation ! répétés par tous les spectateurs se prolongent pendant plusieurs instants.)</p>
 </blockquote>
-<p>Dans ce contexte, nous regardons les mots qui entourent le lemme &ldquo;roi&rdquo; soit &ldquo;roi&rdquo; et &ldquo;rois&rdquo;. </p>
+<p>Dans ce contexte, nous regardons les mots qui entourent, les co-occurrences, le lemme &ldquo;roi&rdquo; soit les mots &ldquo;roi&rdquo; et &ldquo;rois&rdquo;. </p>
 <p>Pour comprendre l&rsquo;effet de la lemmatisation, nous testons deux approches:</p>
 <ol>
-<li>avec une lemmatisation automatique d&rsquo;un mot grâce à l&rsquo;outil <a href="https://spacy.io/">SpaCy</a> La lemmatisation s&rsquo;effectue sur le mot recherché, le &ldquo;mot-pivot&rdquo;, donc &ldquo;roi&rdquo; et &ldquo;rois&rdquo; sont recherchés indistinctement, et aussi sur le résultats : &ldquo;applaudissement&rdquo; regroupe le singulier &ldquo;applaudissement&rdquo; et le pluriel &ldquo;applaudissements&rdquo;, ou encore, &ldquo;combattre&rdquo; regroupe les conjugaisons &ldquo;combattons&rdquo;, &ldquo;combattez&rdquo;, &ldquo;combattent&rdquo;, etc</li>
-<li>de manière séquentielle, avec un même mot pris au singulier puis au pluriel. Le comptage est effectué avec &ldquo;roi&rdquo; puis avec &ldquo;rois&rdquo;. Le résultat distingue le singulier &ldquo;applaudissement&rdquo; et le pluriel &ldquo;applaudissements&rdquo;.</li>
+<li>la première approche, avec une lemmatisation automatique d&rsquo;un mot grâce à l&rsquo;outil <a href="https://spacy.io/">SpaCy</a> La lemmatisation s&rsquo;effectue sur le mot recherché, le &ldquo;mot-pivot&rdquo;, donc &ldquo;roi&rdquo; et &ldquo;rois&rdquo; sont recherchés indistinctement. La lemmatisation est aussi appliquée aux résultats : &ldquo;applaudissement&rdquo; regroupe le singulier &ldquo;applaudissement&rdquo; et le pluriel &ldquo;applaudissements&rdquo;, ou encore, &ldquo;combattre&rdquo; regroupe les conjugaisons &ldquo;combattons&rdquo;, &ldquo;combattez&rdquo;, &ldquo;combattent&rdquo;, etc</li>
+<li>la seconde approche, sans lemmatisation, avec un même mot pris au singulier puis au pluriel. Le comptage des co-occurrences est effectué avec &ldquo;roi&rdquo; puis avec &ldquo;rois&rdquo;. Le résultat distingue aussi le singulier &ldquo;applaudissement&rdquo; et le pluriel &ldquo;applaudissements&rdquo;.</li>
 </ol>
 <h2 id="resultats-avec-la-lemmatisation-automatique">Résultats avec la lemmatisation automatique</h2>
 <p>Le lemme &ldquo;roi&rdquo; apparait 439 fois.</p>
@@ -130,12 +130,11 @@ Le Top 5 des mots les plus fréquents:</p>
 <li>captivité (4)</li>
 <li>serment (3)</li>
 </ul>
-<p>Les thématiques sont cohérentes avec le contexte. Ces résultats sont aussi décevants. Au mieux, ils confirment ce que l&rsquo;on attendait. </p>
-<p>Mais, aucune surprise, aucun accident. Ils ouvrent peu de nouvelles questions. Ces limites s&rsquo;expliquent en partie par les caractéristiques de l&rsquo;outil.</p>
+<p>Les thématiques sont cohérentes avec le contexte. Cependant, ces résultats sont aussi décevants. Ils confirment ce que l&rsquo;on attendait. Mais, <strong>aucune surprise, aucun accident</strong>. Ils ouvrent peu de nouvelles questions. Ces limites s&rsquo;expliquent en partie par les caractéristiques de l&rsquo;outil.</p>
 <p>En effet, le nettoyage de mots-vides par SpaCy pose problème : &ldquo;Louis&rdquo; est éliminé du résultat car considéré comme mot-vide mais pas les verbes &ldquo;être&rdquo; ou &ldquo;faire&rdquo;, ou encore &ldquo;-&rdquo; et &ldquo;«&rdquo; qui sont conservés comme des mots. La configuration de l&rsquo;outil est binaire: soit on prend la liste de mots-vides de SpaCy soit on ne la prend pas. Et c&rsquo;est un peu une boîte noire.</p>
-<p>De manière surprenante, il distingue &ldquo;applaudissement&rdquo; et &ldquo;Applaudissements&rdquo;. Il faut dire que la numérisation de ce dernier est fautive: &ldquo;{Applaudissements&rdquo;, la parenthèse est lue comme une accolade. Idem &ldquo;Majesté&rdquo; ou &ldquo;majestés&rdquo;.</p>
+<p>De manière surprenante, il est sensible à la casse, il distingue &ldquo;applaudissement&rdquo; et &ldquo;Applaudissements&rdquo;. Il faut dire que la numérisation de ce dernier est fautive: &ldquo;{Applaudissements&rdquo;, la parenthèse est lue comme une accolade. Idem &ldquo;Majesté&rdquo; ou &ldquo;majestés&rdquo;.</p>
 <p>Enfin c&rsquo;est un outil assez gourmand en mémoire. Il traite nos 700 pages en quelques minutes alors que mes scripts plus frustres le font en quelques secondes. </p>
-<h2 id="resultats-en-separant-singulier-et-pluriel">Résultats en séparant singulier et pluriel</h2>
+<h2 id="resultats-sans-lemmatisatisation-en-separant-singulier-et-pluriel">Résultats sans lemmatisatisation, en séparant singulier et pluriel</h2>
 <h4 id="roi-au-singulier">Roi au singulier</h4>
 <p>323 apparitions dans le texte</p>
 <p>On retrouve toutes les thématiques identifiées avec la lemmatisation automatique de SpaCy mais avec <strong>plus de précisions</strong>.</p>
@@ -165,7 +164,7 @@ Le Top 5 des mots les plus fréquents:</p>
 <p>Est-ce à dire que les révolutionnaires haïssent LES rois et non LE roi, LES tyrans et non LE tyran ? </p>
 <p><strong>Ces différences ouvrent la curiosité.</strong></p>
 <p>Au final, l&rsquo;exercice de comptage des co-occurrences est intéressant lorsqu&rsquo;il permet de débuter un regroupement thématique, d&rsquo;identifier des différences et suscite des surprises.</p>
-<p>La lemmatisation est utile pour rendre les résultats lisibles. Il est cependant préférable qu&rsquo;elle soit contrôlée par l&rsquo;analyste. Comme nous l&rsquo;avons vu, les distinctions grammaticales (singulier / pluriel, passé / présent / futur) peuvent apporter un éclairage sur le corpus. C&rsquo;est à l&rsquo;historienne ou à l&rsquo;historien d&rsquo;en décider. SpaCy, dont les objectifs sont différents, lisse trop le texte. Mieux vaut parfois un outil plus frustre mais mieux maîtrisé.</p>
+<p>La lemmatisation est utile pour rendre les résultats lisibles. Il est cependant préférable qu&rsquo;elle soit contrôlée par l&rsquo;analyste. Comme nous l&rsquo;avons vu, les distinctions grammaticales (singulier / pluriel, passé / présent / futur) peuvent apporter un éclairage sur le corpus. C&rsquo;est à l&rsquo;historienne ou l&rsquo;historien d&rsquo;en décider. SpaCy, dont les objectifs sont différents, lisse trop le texte. Mieux vaut parfois un outil plus frustre mais mieux maîtrisé.</p>
 <div class="footnote">
 <hr />
 <ol>
